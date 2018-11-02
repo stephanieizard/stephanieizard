@@ -1,7 +1,17 @@
 ---
-title: "Holy cow!"
+title: "Introduction"
 ---
 
-### I have a webpage!
+# Hi! I'm Stephanie.
 
-And I can put all kinds of stuff on it!
+##Want to learn more? 
+
+###Click "About".
+
+##Want to see my flexdashboard?
+
+###Click "Flexdashboard"
+
+##Want to watch Titanic?
+
+####Yay! Click [here!](https://www.amazon.com/Titanic-Leonardo-DiCaprio/dp/B00A3ZJIY6/ref=sr_1_1?ie=UTF8&qid=1541131349&sr=8-1&keywords=titanic+amazon+prime+video)
