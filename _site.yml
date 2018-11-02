@@ -5,11 +5,12 @@ navbar:
   right:
     - text: "About"
       href: about.html
+    - text: "Flexdashboard"
+      href: noaa.html
     - icon: fa-envelope fa-lg
       href: mailto:<smi2112@cumc.columbia.edu>
     - icon: fa-github fa-lg
       href: http://github.com/stephanieizard/
-    - text: "Flexdashboard"
-      href: noaa.html
+
 output:
   html_document:

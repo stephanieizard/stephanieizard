@@ -4,17 +4,6 @@ output:
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
-    navbar:
-  title: "Home"
-  right:
-    - text: "About"
-      href: about.html
-    - icon: fa-envelope fa-lg
-      href: mailto:<smi2112@cumc.columbia.edu>
-    - icon: fa-github fa-lg
-      href: http://github.com/stephanieizard/
-    - text: "Flexdashboard"
-      href: noaa.html
 ---
 
 ```{r setup, include=FALSE}
