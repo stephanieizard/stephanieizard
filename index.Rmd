@@ -1,17 +1,15 @@
 ---
-title: "Introduction"
+title: "Hi! I'm Stephanie."
 ---
 
-## Hi! I'm Stephanie.
+##Want to learn about my academic and professional experience? 
 
-###Want to learn more? 
+###Click "About".
 
-####Click "About".
+##Want to see my flexdashboard?
 
-###Want to see my flexdashboard?
+###Click "Flexdashboard". It uses data from the  NOAA National Climatic Data Center.
 
-####Click "Flexdashboard"
+##Want to watch Titanic?
 
-###Want to watch Titanic?
-
-####Yay! Click [here!](https://www.amazon.com/Titanic-Leonardo-DiCaprio/dp/B00A3ZJIY6/ref=sr_1_1?ie=UTF8&qid=1541131349&sr=8-1&keywords=titanic+amazon+prime+video)
+###Yay! Click [here!](https://www.amazon.com/Titanic-Leonardo-DiCaprio/dp/B00A3ZJIY6/ref=sr_1_1?ie=UTF8&qid=1541131349&sr=8-1&keywords=titanic+amazon+prime+video)
