@@ -1,0 +1,82 @@
+---
+title: "Flexdashboard with NOAA dataset"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(plotly)
+```
+
+
+```{r}
+set.seed(1)
+
+ny_noaa <- p8105.datasets::ny_noaa %>% 
+  separate(date, into = c("year", "month", "day"), sep = "-") %>% 
+  mutate(year, as.integer(year)) %>%
+  mutate_at(vars(prcp:tmin), as.numeric) %>% 
+  mutate(tmax = tmax / 10,
+         tmin = tmin / 10,
+         prcp = prcp / 100, 
+         snow = snow / 10, 
+         snwd = snwd / 10) %>% 
+  sample_n(5000)
+```
+
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Maximum Temperature per Season from 1981 to 2010
+
+```{r}
+ny_noaa %>% 
+  mutate(month = as.numeric(month)) %>% 
+  mutate(season = if_else(month %in% 4:6, "Spring", 
+                          if_else(month %in% 7:9, "Summer",
+                                  if_else(month %in% 10:12, "Fall", "Winter")))) %>% 
+  group_by(season) %>%
+  plot_ly(x = ~season, y = ~tmax, color = ~season, type = "box", colors = "Set3") %>% 
+  layout(xaxis = list(title = "Season"), 
+         yaxis = list(title = "Maximum Temperature (Degrees C)"))
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Minimum and Maximum Temperature Each Day by Season
+
+```{r}
+ny_noaa %>% 
+  mutate(month = as.numeric(month)) %>% 
+  mutate(season = if_else(month %in% 4:6, "Spring", 
+                          if_else(month %in% 7:9, "Summer",
+                                  if_else(month %in% 10:12, "Fall", "Winter")))) %>% 
+  plot_ly(x = ~tmin, y = ~tmax, color = ~season, type = "scatter", colors = "Set3") %>% 
+  layout(xaxis = list(title = "Maximum Temperature (Degrees C)"), 
+         yaxis = list(title = "Minimum Temperature (Degrees C)"))
+  
+```
+
+### Precipitation from 1981 to 2010 by Year and Season
+
+```{r}
+ny_noaa %>% 
+  mutate(month = as.numeric(month)) %>% 
+  mutate(season = if_else(month %in% 4:6, "Spring", 
+                          if_else(month %in% 7:9, "Summer",
+                                  if_else(month %in% 10:12, "Fall", "Winter")))) %>% 
+  group_by(year, season) %>% 
+  summarize(sum_prcp = sum(prcp, na.rm = TRUE)) %>% 
+  mutate(sum_prcp = sum_prcp / 1000) %>% 
+  plot_ly(x = ~year, y = ~sum_prcp, type = "bar", color = ~season, colors = "Set3") %>% 
+  layout(barmode = 'stack', 
+         xaxis = list(title = "Year"), 
+         yaxis = list(title = "Total Precipitation (m)"))
+```
+
